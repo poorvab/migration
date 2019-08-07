@@ -14,4 +14,4 @@ drush migrate-reset-status user_xml_importer
 To rollback:
 drush migrate-rollback user_xml_importer
 
-I have placed all the migration files at root.
+I have placed all the migration files at root folder.
