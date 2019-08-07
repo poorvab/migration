@@ -1,0 +1,36 @@
+uuid: a0120423-ccfb-420d-b3e5-acc0fda29e3c
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_currency_xml_importer
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'Import XML taxonomy feed'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  urls: 'http://drupal8.dd:8083/data.xml'
+  data_parser_plugin: xml
+  item_selector: /main/data
+  fields:
+    -
+      name: guid
+      label: 'Unique Id'
+      selector: id
+    -
+      name: currency
+      label: Currency
+      selector: currency
+  ids:
+    guid:
+      type: integer
+process:
+  tid: tid
+  name: currency
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: currency
+migration_dependencies: null
